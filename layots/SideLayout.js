@@ -3,8 +3,8 @@ import Image from "next/image";
 
 export default function SideLayout({children}) {
     return(
-        <div className={'max-w-1600 mx-auto flex  relative'}>
-            <aside className={'bg-aside w-56 h-screen'}>
+        <div className={'max-w-1600 h-screen mx-auto flex  relative overflow-hidden'}>
+            <aside className={'bg-aside w-1/6 h-screen'}>
                 ASIDE
             </aside>
             <div className={'absolute w-screen h-screen bg-black -z-10'}>
