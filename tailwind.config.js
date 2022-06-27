@@ -1,5 +1,6 @@
 module.exports = {
   content: [
+    "./layots/**/*{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
@@ -17,6 +18,9 @@ module.exports = {
       fontSize: {
         xxl: '4rem',
         screen: '10rem'
+      },
+      backgroundColor: {
+        'aside': 'rgba(255, 255, 255, 0.1)'
       }
     },
   },
