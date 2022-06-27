@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function SideLayout({children}) {
     return(
-        <div className={'max-w-1600 mx-auto flex flex-wrap relative'}>
+        <div className={'max-w-1600 mx-auto flex  relative'}>
             <aside className={'bg-aside w-56 h-screen'}>
                 ASIDE
             </aside>
