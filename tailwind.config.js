@@ -16,6 +16,7 @@ module.exports = {
         montserratBold: ['Montserrat-Bold'],
       },
       fontSize: {
+        h: '2rem',
         xxl: '4rem',
         screen: '10rem'
       },
