@@ -18,7 +18,7 @@ export default function Home() {
         </video>
           <h1 className={'flex items-center justify-center font-montserratBold absolute w-full h-screen text-white text-lg text-screen -translate-y-36'}>TRY OUT!</h1>
         <div className={'absolute flex items-center justify-center w-full h-full text-white'}>
-            <div className={'w-64 h-40 border rounded flex flex-col items-center justify-center relative '}>
+            <div className={'w-64 h-40  rounded flex flex-col items-center justify-center relative '}>
                 <span className={'font-montserratBold text-white mb-3 text-xxl absolute top-2'}>SIGN IN</span>
                 <div className={'absolute bottom-0 w-full'}>
                     <button className={' w-full flex items-center justify-center gap-3 bg-white  p-1'}><pre className={'font-montserratThin text-red-500'}>Google</pre></button>

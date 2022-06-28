@@ -1,17 +1,24 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-const testSlice = createSlice({
-    name: 'test',
+const cardSlice = createSlice({
+    name: 'card',
     initialState:{
-        testValue : ''
+        cardName : '',
+        cardUi: '',
+        cardText: '',
+        transform: 'opacity-0',
+
     },
     reducers: {
-      smth: (state)=>{
-          state.testValue = 1
+      cardReducer: (state=0,{payload})=>{
+          state.cardName = payload?.name;
+          state.cardText = payload?.text;
+          state.cardUi = payload?.img;
+          state.transform = payload.transform;
       }
     }
 })
 
-export const {smth} = testSlice.actions
+export const {cardReducer} = cardSlice.actions
 
-export default testSlice
+export default cardSlice
