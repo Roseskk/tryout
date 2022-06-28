@@ -1,10 +1,10 @@
 import {configureStore} from "@reduxjs/toolkit";
 import { combineReducers } from 'redux'
-import testSlice from "./slices/testSlice";
+import cardSlice from "./slices/testSlice";
 
 
 const rootReducer = combineReducers({
-    test: testSlice.reducer
+    card: cardSlice.reducer
 })
 
 export const store = configureStore({
