@@ -29,9 +29,18 @@ module.exports = {
         ui: '500px',
         card: '600px'
       },
-      // transform: {
-      //   translate:
-      // },
+      keyframes:{
+        resize:{
+          '0%, 100%': { height: '1px',width: '1px' },
+          '20%': {height : '1px',width:'1px'},
+          '60%': {height: '1px',width:'600px'},
+          '80%': {height: '600px',width:'600px'},
+          '100%': { height: '600px', width: '600px' },
+        }
+      },
+      animation: {
+        resize: 'resize 1.5s ease-in-out forwards'
+      },
       backgroundColor: {
         'aside': 'rgba(255, 255, 255, 0.1)'
       }

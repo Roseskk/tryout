@@ -30,17 +30,17 @@ export default function Explore(props) {
 
     const handleCard = ({name,img,text}) => {
         setTimeout(()=>{
-            dispatch(cardReducer({name,img,text,transform: 'opacity-100'}));
+            dispatch(cardReducer({name,img,text,transform: 'opacity-100 animate-resize'}));
         },250)
         setIndex('z-10')
     }
 
     const handleCardButton = () => {
 
-        dispatch(cardReducer({img: image,transform: 'opacity-0'}));
+        dispatch(cardReducer({name: title,img: image,text: text,transform: 'opacity-0'}));
         setTimeout(()=>{
             setIndex('-z-10')
-        },1500)
+        },1000)
     }
 
    return(
@@ -62,7 +62,7 @@ export default function Explore(props) {
                        })
                    }
                </ul>
-               <div className={`absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-card h-card bg-white rounded ${transform} ${zIndex} transition ease-in-out delay-1000`}>
+               <div className={`absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-card h-card bg-white rounded ${transform} ${zIndex} transition ease-in-out delay-500 overflow-hidden`}>
                    <div className={'relative h-2/3 w-full object-cover overflow-hidden '}>
                        <button onClick={handleCardButton} className={'absolute right-3 top-3 text-2xl text-white border rounded-full z-20 pl-3 pr-3 pb-1'}>&times;</button>
                        {
@@ -72,7 +72,7 @@ export default function Explore(props) {
 
                        }
                    </div>
-                   <div className={'h-1/3 w-full'}>
+                   <div className={'w-full'}>
                        <h1 className={'font-montserratBold text-center text-3xl'}>{title}</h1>
                        <p className={'font-montserratRegular flex items-center justify-center'}>{text}</p>
                    </div>
