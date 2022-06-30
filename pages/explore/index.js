@@ -4,9 +4,11 @@ import {useDispatch, useSelector} from "react-redux";
 import SideLayout from "../../layots/SideLayout";
 import {cardReducer} from "../../redux/slices/testSlice";
 import {useState} from "react";
+import {useRouter} from "next/router";
 
 
 export default function Explore(props) {
+    const router = useRouter();
     const dispatch = useDispatch();
     const [zIndex,setIndex] = useState('-z-10')
 
