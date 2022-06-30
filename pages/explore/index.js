@@ -5,6 +5,7 @@ import SideLayout from "../../layots/SideLayout";
 import {cardReducer} from "../../redux/slices/testSlice";
 import {useState} from "react";
 import {useRouter} from "next/router";
+import { motion } from 'framer-motion';
 
 
 export default function Explore(props) {
@@ -47,39 +48,41 @@ export default function Explore(props) {
 
    return(
        <SideLayout>
-           <div className={'w-5/6 flex flex-wrap h-screen  p-10  ml-5 overflow-y-scroll  '}>
-               <ul className={'flex gap-10 flex-wrap mb-5 '}>
-                   {
-                       items.map((card)=>{
-                           return(
-                               <li key={card.id} onClick={()=>handleCard({name: card.name, img: card.img, text: card.text})} className={'w-56 h-56  bg-white  rounded overflow-hidden cursor-pointer'}>
-                                   <div className={'h-32 object-cover overflow-hidden '}>
-                                       <Image src={card.img} width={'100%'} height={'100%'} layout={"responsive"} className={'rounded'}/>
-                                   </div>
-                                   <div className={'font-montserratRegular p-1 mt-2 text-sm break-words'}>
-                                       <span className={'break-words'}>{card.text}</span>
-                                   </div>
-                               </li>
-                           )
-                       })
-                   }
-               </ul>
-               <div className={`absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-card h-card bg-white rounded ${transform} ${zIndex} transition ease-in-out delay-500 overflow-hidden`}>
-                   <div className={'relative h-2/3 w-full object-cover overflow-hidden '}>
-                       <button onClick={handleCardButton} className={'absolute right-3 top-3 text-2xl text-white border rounded-full z-20 pl-3 pr-3 pb-1'}>&times;</button>
+           {/*<motion.div>*/}
+               <div className={'w-5/6 flex flex-wrap h-screen  p-10  ml-5 overflow-y-scroll  '}>
+                   <ul className={'flex gap-10 flex-wrap mb-5 '}>
                        {
-                           image === ''
-                               ? <div></div>
-                               : <Image src={image} width={'100%'} height={'100%'} layout={"responsive"} className={'rounded'} objectFit={'cover'}/>
-
+                           items.map((card)=>{
+                               return(
+                                   <li key={card.id} onClick={()=>handleCard({name: card.name, img: card.img, text: card.text})} className={'w-56 h-56  bg-white  rounded overflow-hidden cursor-pointer'}>
+                                       <div className={'h-32 object-cover overflow-hidden '}>
+                                           <Image src={card.img} width={'100%'} height={'100%'} layout={"responsive"} className={'rounded'}/>
+                                       </div>
+                                       <div className={'font-montserratRegular p-1 mt-2 text-sm break-words'}>
+                                           <span className={'break-words'}>{card.text}</span>
+                                       </div>
+                                   </li>
+                               )
+                           })
                        }
-                   </div>
-                   <div className={'w-full'}>
-                       <h1 className={'font-montserratBold text-center text-3xl'}>{title}</h1>
-                       <p className={'font-montserratRegular flex items-center justify-center'}>{text}</p>
+                   </ul>
+                   <div className={`absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-card h-card bg-white rounded ${transform} ${zIndex} transition ease-in-out delay-500 overflow-hidden`}>
+                       <div className={'relative h-2/3 w-full object-cover overflow-hidden '}>
+                           <button onClick={handleCardButton} className={'absolute right-3 top-3 text-2xl text-white border rounded-full z-20 pl-3 pr-3 pb-1'}>&times;</button>
+                           {
+                               image === ''
+                                   ? <div></div>
+                                   : <Image src={image} width={'100%'} height={'100%'} layout={"responsive"} className={'rounded'} objectFit={'cover'}/>
+
+                           }
+                       </div>
+                       <div className={'w-full'}>
+                           <h1 className={'font-montserratBold text-center text-3xl'}>{title}</h1>
+                           <p className={'font-montserratRegular flex items-center justify-center'}>{text}</p>
+                       </div>
                    </div>
                </div>
-           </div>
+           {/*</motion.div>*/}
        </SideLayout>
    )
 }
