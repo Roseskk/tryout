@@ -1,14 +1,27 @@
 import '../styles/globals.css'
 import {Provider} from "react-redux";
 import {store} from "../redux/store";
-import {AnimateSharedLayout} from "framer-motion";
+
+import {motion} from "framer-motion";
 
 function MyApp({ Component, pageProps, router }) {
   return(
       <Provider store={store}>
-          <AnimateSharedLayout>
+          <motion.div
+              key={router.route}
+              initial="initial"
+              animate="animate"
+              variants={{
+                  initial: {
+                      opacity: 0,
+                  },
+                  animate: {
+                      opacity: 1,
+                  },
+              }}
+          >
               <Component {...pageProps}   />
-          </AnimateSharedLayout>
+          </motion.div>
       </Provider>
   )
 }

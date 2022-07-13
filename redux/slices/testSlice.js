@@ -3,6 +3,7 @@ import {createSlice} from "@reduxjs/toolkit";
 const cardSlice = createSlice({
     name: 'card',
     initialState:{
+        id: '',
         cardName : '',
         cardUi: '',
         cardText: '',
@@ -11,6 +12,7 @@ const cardSlice = createSlice({
     },
     reducers: {
       cardReducer: (state=0,{payload})=>{
+          state.id = payload?.idx;
           state.cardName = payload?.name;
           state.cardText = payload?.text;
           state.cardUi = payload?.img;
