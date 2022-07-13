@@ -15,7 +15,7 @@ export default function SideLayout({children}) {
                 {/*    <input className={'text-lg  rounded p-2 bg-transparent placeholder:text-white border-b-white border-b tracking-widest placeholder-white text-white focus:outline-none focus:ring-0  placeholder:opacity-50'} placeholder={'Pink UI...'} />*/}
                 {/*</div>*/}
                 <div className={'flex flex-col gap-4 mt-4'}>
-                    <button className={'flex items-center pl-7 gap-5'}>
+                    <button onClick={()=> router.push(`/explore`)} className={'flex items-center pl-7 gap-5'}>
                         <Image src={'/ico/explore.svg'}  width={'20px'} height={'20px'} />
                         <span className={'text-white text-lg font-montserratRegular'}>Проекты</span>
                     </button>

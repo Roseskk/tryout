@@ -13,6 +13,7 @@ export default function Explore(props) {
     const dispatch = useDispatch();
     const [zIndex,setIndex] = useState('-z-10')
 
+    const id = useSelector((state)=> state.card.id);
     const text = useSelector((state)=> state.card.cardText);
     const image = useSelector((state)=> state.card.cardUi);
     const title = useSelector((state)=> state.card.cardName);
@@ -31,19 +32,26 @@ export default function Explore(props) {
        {id: 10, name: 'Illustrator', img: '/img/bg.png', text: 'Everyone can be an illustrator! Just believe in yourself'}
     ];
 
-    const handleCard = ({name,img,text}) => {
+    const handleCard = ({idx,name,img,text}) => {
         setTimeout(()=>{
-            dispatch(cardReducer({name,img,text,transform: 'opacity-100 animate-resize'}));
+            dispatch(cardReducer({idx,name,img,text,transform: 'opacity-100 animate-resize'}));
         },250)
         setIndex('z-10')
     }
 
     const handleCardButton = () => {
-
-        dispatch(cardReducer({name: title,img: image,text: text,transform: 'opacity-0'}));
+        dispatch(cardReducer({id: id,name: title,img: image,text: text,transform: 'opacity-0'}));
         setTimeout(()=>{
             setIndex('-z-10')
         },1000)
+    }
+
+    const handlePage = () => {
+        dispatch(cardReducer({id: id,name: title,img: image,text: text,transform: 'opacity-0'}));
+        setTimeout(()=>{
+            setIndex('-z-10')
+        },1000)
+        router.push(`/explore/${id}`)
     }
 
    return(
@@ -54,7 +62,7 @@ export default function Explore(props) {
                        {
                            items.map((card)=>{
                                return(
-                                   <li key={card.id} onClick={()=>handleCard({name: card.name, img: card.img, text: card.text})} className={'w-56 h-56  bg-white  rounded overflow-hidden cursor-pointer'}>
+                                   <li key={card.id} onClick={()=>handleCard({idx: card.id, name: card.name, img: card.img, text: card.text})} className={'w-56 h-56  bg-white  rounded overflow-hidden cursor-pointer'}>
                                        <div className={'h-32 object-cover overflow-hidden '}>
                                            <Image src={card.img} width={'100%'} height={'100%'} layout={"responsive"} className={'rounded'}/>
                                        </div>
@@ -79,6 +87,9 @@ export default function Explore(props) {
                        <div className={'w-full'}>
                            <h1 className={'font-montserratBold text-center text-3xl'}>{title}</h1>
                            <p className={'font-montserratRegular flex items-center justify-center'}>{text}</p>
+                       </div>
+                       <div className={'w-full flex items-center justify-center  mt-2'}>
+                           <button onClick={handlePage} className={'font-montserratRegular bg-purple-500 p-2 text-white text-base  rounded '}>Посмотреть</button>
                        </div>
                    </div>
                </div>
