@@ -1,28 +1,14 @@
-import {AnimatePresence, motion} from "framer-motion"
-
 import '../styles/globals.css'
 import {Provider} from "react-redux";
 import {store} from "../redux/store";
-import {useRouter} from "next/router";
+import {AnimateSharedLayout} from "framer-motion";
 
-function MyApp({ Component, pageProps }) {
-    const router = useRouter()
-    console.log(router.asPath)
+function MyApp({ Component, pageProps, router }) {
   return(
       <Provider store={store}>
-          <AnimatePresence>
-              {
-                  <motion.div
-                      key={router.asPath}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1}}
-                      exit={{ opacity: 1 }}
-                      // transition={{delay: 1}}
-                  >
-                      <Component {...pageProps} />
-                  </motion.div>
-              }
-          </AnimatePresence>
+          <AnimateSharedLayout>
+              <Component {...pageProps}   />
+          </AnimateSharedLayout>
       </Provider>
   )
 }
