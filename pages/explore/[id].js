@@ -55,23 +55,23 @@ export default function CardInfo(props) {
     )
 }
 
-export const getStaticPaths = async () =>  {
-    const response = await fetch(`http://172.16.10.5:8083/api/r/form/path`);
-    const paths = await response.json();
-    const path = paths.map((item)=>({
-        params: { id: item.id.toString() }
-    }));
-    return{
-        paths: [...path],
-        fallback: false
-    }
-}
-export const  getStaticProps = async (ctx) =>  {
-    const response = await fetch(`http://172.16.10.5:8083/api/r/form/search/${ctx.params.id}`)
-    const students = await response.json()
-    return{
-        props: {
-            students
-        }
-    }
-}
+// export const getStaticPaths = async () =>  {
+//     const response = await fetch(`http://172.16.10.5:8083/api/r/form/path`);
+//     const paths = await response.json();
+//     const path = paths.map((item)=>({
+//         params: { id: item.id.toString() }
+//     }));
+//     return{
+//         paths: [...path],
+//         fallback: false
+//     }
+// }
+// export const  getStaticProps = async (ctx) =>  {
+//     const response = await fetch(`http://172.16.10.5:8083/api/r/form/search/${ctx.params.id}`)
+//     const students = await response.json()
+//     return{
+//         props: {
+//             students
+//         }
+//     }
+// }
