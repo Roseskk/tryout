@@ -20,7 +20,6 @@ export default function Explore(props) {
     const title = useSelector((state)=> state.card.cardName);
     const transform = useSelector((state)=> state.card.transform);
 
-
     const {isLoading,isError,data} = useGetCardsQuery()
 
     console.log(data)
@@ -66,14 +65,15 @@ export default function Explore(props) {
                <div className={'w-5/6 flex flex-wrap h-screen  p-10  ml-5 overflow-y-scroll  '}>
                    <ul className={'flex gap-10 flex-wrap mb-5 '}>
                        {
-                           items.map((card)=>{
+                           data?.map((card)=>{
                                return(
-                                   <li key={card.id} onClick={()=>handleCard({idx: card.id, name: card.name, img: card.img, text: card.text})} className={'w-56 h-56  bg-white  rounded overflow-hidden cursor-pointer'}>
+                                   <li key={card.id} onClick={()=>handleCard({idx: card.id, name: card.name, img: '/img/bg.png', text: card.text})} className={'w-56 h-56  bg-white  rounded overflow-hidden cursor-pointer'}>
                                        <div className={'h-32 object-cover overflow-hidden '}>
-                                           <Image src={card.img} width={'100%'} height={'100%'} layout={"responsive"} className={'rounded'}/>
+                                           <Image src={'/img/bg.png'} width={'100%'} height={'100%'} layout={"responsive"} className={'rounded'}/>
                                        </div>
-                                       <div className={'font-montserratRegular p-1 mt-2 text-sm break-words'}>
-                                           <span className={'break-words'}>{card.text}</span>
+                                       <div className={'flex flex-col gap-2 font-montserratRegular p-1 mt-2 text-sm break-words'}>
+                                           <span className={'text-center tracking-widest text-[18px]'}>{card.title}</span>
+                                           <span className={'break-words px-2'}>{card.text}</span>
                                        </div>
                                    </li>
                                )
