@@ -6,6 +6,7 @@ import {cardReducer} from "../../redux/slices/testSlice";
 import {useState} from "react";
 import {useRouter} from "next/router";
 import { motion } from 'framer-motion';
+import {useGetCardsQuery} from "../../redux/tryout/tryout.api";
 
 
 export default function Explore(props) {
@@ -18,6 +19,11 @@ export default function Explore(props) {
     const image = useSelector((state)=> state.card.cardUi);
     const title = useSelector((state)=> state.card.cardName);
     const transform = useSelector((state)=> state.card.transform);
+
+
+    const {isLoading,isError,data} = useGetCardsQuery()
+
+    console.log(data)
 
     const items = [
        {id: 1, name: 'Illustrator', img: '/img/bg.png', text: 'Everyone can be an illustrator! Just believe in yourself'},
