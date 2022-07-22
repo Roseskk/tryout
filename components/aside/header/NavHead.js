@@ -2,8 +2,6 @@
 
 export default function NavHead() {
     return(
-        <div>
-            <h1 className={'font-montserratBold text-center text-white text-h mt-10'}>TRY OUT!</h1>
-        </div>
+        <h1 className={' md:block flex items-center  font-montserratBold text-center text-white text-[15px] md:text-h md:mt-10'}>TRY OUT!</h1>
     )
 }
