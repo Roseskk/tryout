@@ -39,7 +39,7 @@ export default function Explore(props) {
 
     const handleCard = ({idx,name,img,text}) => {
         setTimeout(()=>{
-            dispatch(cardReducer({idx,name,img,text,transform: 'opacity-100 animate-resize'}));
+            dispatch(cardReducer({idx,name,img,text,transform: 'opacity-100 md:animate-resize'}));
         },250)
         setIndex('z-10')
     }
@@ -67,7 +67,7 @@ export default function Explore(props) {
                        {
                            data?.map((card)=>{
                                return(
-                                   <li key={card.id} onClick={()=>handleCard({idx: card.id, name: card.name, img: '/img/bg.png', text: card.text})} className={'h-[16rem] w-full md:w-56 md:h-56  bg-white  rounded overflow-hidden cursor-pointer'}>
+                                   <li key={card.id} onClick={()=>handleCard({idx: card.id, name: card.title, img: '/img/bg.png', text: card.text})} className={'h-[16rem] w-full md:w-56 md:h-56  bg-white  rounded overflow-hidden cursor-pointer'}>
                                        <div className={'h-32 object-cover overflow-hidden '}>
                                            <Image src={'/img/bg.png'} width={'100%'} height={'100%'} layout={"responsive"} unoptimized quality={100} className={'rounded'}/>
                                        </div>
@@ -80,8 +80,8 @@ export default function Explore(props) {
                            })
                        }
                    </ul>
-                   <div className={`absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2  w-card h-card bg-white rounded ${transform} ${zIndex} transition ease-in-out delay-500 overflow-hidden`}>
-                       <div className={'relative h-2/3 w-full object-cover overflow-hidden '}>
+                   <div className={`absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-full w-[400px] h-[400px]   md:w-card md:h-card bg-gray-300 md:bg-white rounded ${transform} ${zIndex} transition ease-in-out delay-500 overflow-hidden`}>
+                       <div className={'relative h-2/3  w-full object-cover overflow-hidden '}>
                            <button onClick={handleCardButton} className={'absolute right-3 top-3 text-2xl text-white border rounded-full z-20 pl-3 pr-3 pb-1'}>&times;</button>
                            {
                                image === ''
@@ -90,12 +90,14 @@ export default function Explore(props) {
 
                            }
                        </div>
-                       <div className={'w-full'}>
-                           <h1 className={'font-montserratBold text-center text-3xl'}>{title}</h1>
-                           <p className={'font-montserratRegular flex items-center justify-center'}>{text}</p>
-                       </div>
-                       <div className={'w-full flex items-center justify-center  mt-2'}>
-                           <button onClick={handlePage} className={'font-montserratRegular bg-purple-500 p-2 text-white text-base  rounded '}>Посмотреть</button>
+                       <div className={''}>
+                           <div className={'w-full'}>
+                               <h1 className={'font-montserratBold text-center text-2xl'}>{title}</h1>
+                               <p className={'font-montserratRegular flex items-center justify-center'}>{text}</p>
+                           </div>
+                           <div className={'w-full  flex items-center justify-center mt-2 '}>
+                               <button onClick={handlePage} className={'w-full md:w-[120px] translate-y-[14px] font-montserratRegular bg-purple-500 md:p-2 p-4 text-white text-base  rounded '}>Посмотреть</button>
+                           </div>
                        </div>
                    </div>
                </div>
