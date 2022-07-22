@@ -5,7 +5,6 @@ import {motion} from "framer-motion";
 
 
 export default function CardInfo(props) {
-    console.log(props.students)
     return(
         <SideLayout>
             <motion.div
