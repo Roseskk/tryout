@@ -29,6 +29,9 @@ module.exports = {
         ui: '500px',
         card: '600px'
       },
+      screens: {
+        'tablet': '920px'
+      },
       keyframes:{
         resize:{
           '0%, 100%': { height: '1px',width: '1px' },
