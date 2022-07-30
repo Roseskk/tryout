@@ -9,7 +9,7 @@ const navSlice = createSlice({
     reducers: {
         navReducer: (state=0,{payload})=>{
             if (payload.isNavList === state.navlist ) {
-                state.navlist = 'animate-sideListHide';
+                state.navlist = 'md:animate-sideListHide';
                 state.navListExitButton = 'opacity-0';
             } else {
                 state.navlist = payload?.isNavList;
